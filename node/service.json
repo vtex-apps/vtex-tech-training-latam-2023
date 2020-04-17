@@ -1,0 +1,14 @@
+{
+  "memory": 128,
+  "ttl": 10,
+  "timeout": 2,
+  "minReplicas": 2,
+  "maxReplicas": 10,
+  "workers": 4,
+  "events": {
+    "example": {
+      "sender": "vtex.events-example",
+      "keys": ["send-event"]
+    }
+  }
+}

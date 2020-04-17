@@ -1,0 +1,93 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+// Inspired by https://github.com/sindresorhus/serialize-error
+const ramda_1 = require("ramda");
+exports.PICKED_AXIOS_PROPS = ['baseURL', 'cacheable', 'data', 'finished', 'headers', 'method', 'timeout', 'status', 'path', 'url', 'metric', 'inflightKey', 'forceMaxAge', 'params', 'responseType'];
+const MAX_ERROR_STRING_LENGTH = process.env.MAX_ERROR_STRING_LENGTH ? parseInt(process.env.MAX_ERROR_STRING_LENGTH, 10) : 8 * 1024;
+const findCaseInsensitive = (target, set) => ramda_1.find(t => t.toLocaleLowerCase() === target, set);
+const destroyCircular = (from, seen) => {
+    const to = Array.isArray(from) ? [] : {};
+    seen.push(from);
+    for (const [key, value] of Object.entries(from)) {
+        // Skip functions
+        if (typeof value === 'function') {
+            continue;
+        }
+        // Skip "private" properties
+        if (key.startsWith('_')) {
+            continue;
+        }
+        if (!value || typeof value !== 'object') {
+            // Truncate very large strings
+            if (typeof value === 'string' && value.length > MAX_ERROR_STRING_LENGTH) {
+                to[key] = value.substr(0, MAX_ERROR_STRING_LENGTH) + '[...TRUNCATED]';
+            }
+            else {
+                to[key] = value;
+            }
+            continue;
+        }
+        if (!seen.includes(from[key])) {
+            to[key] = destroyCircular(from[key], seen.slice());
+            continue;
+        }
+        to[key] = '[Circular]';
+    }
+    const commonProperties = [
+        'name',
+        'message',
+        'stack',
+        'code',
+    ];
+    for (const property of commonProperties) {
+        if (typeof from[property] === 'string') {
+            to[property] = from[property];
+        }
+    }
+    const axiosProperties = [
+        'config',
+        'request',
+        'response',
+    ];
+    for (const property of axiosProperties) {
+        if (to[property] != null && typeof to[property] === 'object') {
+            to[property] = ramda_1.pick(exports.PICKED_AXIOS_PROPS, to[property]);
+            const headers = to[property] && to[property].headers;
+            if (headers) {
+                const headerNames = ramda_1.keys(headers);
+                const authorization = findCaseInsensitive('authorization', headerNames);
+                if (!!authorization) {
+                    delete headers[authorization];
+                }
+                const proxyAuth = findCaseInsensitive('proxy-authorization', headerNames);
+                if (!!proxyAuth) {
+                    delete headers[proxyAuth];
+                }
+                const vtexIdClientAutCookie = findCaseInsensitive('vtexidclientautcookie', headerNames);
+                if (!!vtexIdClientAutCookie) {
+                    delete headers[vtexIdClientAutCookie];
+                }
+            }
+        }
+    }
+    if (!to.code && to.response) {
+        to.code = to.response.status && `E_HTTP_${to.response.status}` || 'E_UNKNOWN';
+    }
+    return to;
+};
+/**
+ * Cleans errors by removing circular properties, truncating large strings and picking axios properties
+ *
+ * @param value an Error instance
+ */
+exports.cleanError = (value) => {
+    if (typeof value === 'object') {
+        return destroyCircular(value, []);
+    }
+    // People sometimes throw things besides Error objects…
+    if (typeof value === 'function') {
+        // `JSON.stringify()` discards functions. We do too, unless a function is thrown directly.
+        return `[Function: ${(value.name || 'anonymous')}]`;
+    }
+    return value;
+};
