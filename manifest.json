@@ -1,13 +1,12 @@
 {
-  "name": "events-example",
+  "name": "backend-course-solution",
   "vendor": "vtex",
   "version": "0.0.1",
-  "title": "Events Example",
-  "description": "Reference app for VTEX IO Services",
-  "dependencies": {},
+  "title": "Backend Course Solution",
+  "description": "Reference app for the Backend Course Solution",
   "builders": {
-    "node": "6.x",
-    "docs": "0.x"
+    "docs": "0.x",
+    "node": "6.x"
   },
   "scripts": {
     "prereleasy": "bash lint.sh"
@@ -19,10 +18,10 @@
     },
     {
       "name": "colossus-write-logs"
-    },
-    {
-      "name": "vbase-read-write"
     }
   ],
+  "dependencies": {
+    "vtex.events-example": "0.x"
+  },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

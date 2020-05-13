@@ -1,0 +1,1 @@
+export declare const cacheControlHTTP: (ctx: import("../../typings").ServiceContext<import("../../../../..").IOClients, import("../../typings").RecorderState, import("../typings").GraphQLContext>) => string;

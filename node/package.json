@@ -5,7 +5,7 @@
   "devDependencies": {
     "@types/co-body": "^0.0.3",
     "@types/node": "12.x",
-    "@vtex/api": "6.25.0",
+    "@vtex/api": "6.28.2",
     "eslint": "^6.3.0",
     "eslint-config-vtex": "^11.0.0",
     "prettier": "^1.18.2",

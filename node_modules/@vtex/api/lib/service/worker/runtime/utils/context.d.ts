@@ -1,0 +1,2 @@
+import { IOContext, TracingContext } from '../typings';
+export declare const prepareHandlerCtx: (header: any, tracingContext: TracingContext) => Pick<IOContext, "host" | "logger" | "account" | "workspace" | "requestId" | "operationId" | "production" | "platform" | "authToken" | "adminUserAuthToken" | "storeUserAuthToken" | "locale" | "product" | "recorder" | "region" | "userAgent" | "segmentToken" | "sessionToken" | "janusEnv" | "serverTiming" | "eventInfo" | "tenant" | "binding" | "cancellation" | "settings" | "tracer">;

@@ -10,11 +10,5 @@
       "sender": "vtex.events-example",
       "keys": ["send-event"]
     }
-  },
-  "routes": {
-    "hcheck": {
-      "path": "/_v/app/events-example/hcheck",
-      "public": true
-    }
   }
 }

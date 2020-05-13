@@ -1,41 +1,32 @@
 import {
+  LRUCache,
   Service,
-  IOClients,
-  ParamsContext,
   ServiceContext,
+  ParamsContext,
   RecorderState,
 } from '@vtex/api'
-import { example } from './events/example'
-import { createSendEvent } from './routes/notify'
-import { getCacheContext, setCacheContext } from './utils/cachedContext'
+import { Clients } from './clients'
+import { example } from './event/example'
 
 const TREE_SECONDS_MS = 3 * 1000
 const CONCURRENCY = 10
 
+// Create a LRU memory cache for the Status client.
+// The @vtex/api HttpClient respects Cache-Control headers and uses the provided cache.
+const memoryCache = new LRUCache<string, any>({ max: 5000 })
+metrics.trackCache('status', memoryCache)
+
 declare global {
-  type Context = ServiceContext<IOClients, State>
+  type Context = ServiceContext<Clients, State>
 
   interface State extends RecorderState {
     code: number
   }
 }
 
-function sendEventWithTimer() {
-  setInterval(function() {
-    const context = getCacheContext()
-    if (!context) {
-      console.log('no context in memory')
-      return
-    }
-    return createSendEvent(context)
-  }, 10000)
-  console.log('FIRED HERE')
-}
-
-sendEventWithTimer()
-
-export default new Service<IOClients, State, ParamsContext>({
+export default new Service<Clients, State, ParamsContext>({
   clients: {
+    implementation: Clients,
     options: {
       events: {
         exponentialTimeoutCoefficient: 2,
@@ -49,12 +40,5 @@ export default new Service<IOClients, State, ParamsContext>({
   },
   events: {
     example,
-  },
-  routes: {
-    hcheck: (ctx: any) => {
-      setCacheContext(ctx)
-      ctx.status = 200
-      ctx.body = 'ok'
-    },
   },
 })
