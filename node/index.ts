@@ -21,14 +21,14 @@ declare global {
 }
 
 function sendEventWithTimer() {
-  setInterval(function() {
+  setInterval(function () {
     const context = getCacheContext()
     if (!context) {
       console.log('no context in memory')
       return
     }
     return createSendEvent(context)
-  }, 10000)
+  }, 30000)
   console.log('FIRED HERE')
 }
 
