@@ -46,6 +46,6 @@ declare global {
 export default new Service<Clients, State, ParamsContext>({
   clients,
   events: {
-    ioFeedListener: omsFeed,
+    omsFeed,
   },
 })
