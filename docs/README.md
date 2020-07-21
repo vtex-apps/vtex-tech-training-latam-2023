@@ -31,7 +31,7 @@ This app handles events sent by the app `vtex.orders-broadcast`, as you can see 
 You have two ways of consuming changes in status:
 
 1. Receive all events subscribing to the `order-status-updated` topic, as the `allStates` handler does
-2. Receive a selection of status changes where the `currentState` equals the `topic`, as the `someStates` handler does
+2. Receive a selection of status changes where the `currentState` equals the `topic`, as the `someStates` handler does. This option is the preferred one, when you know ahead of time, what types of events, you want to listen to.
 
 Normally `vtex.orders-broadcast` sends events only in `master` workspace. If you want to use it in a developer workspace, you have to do the following:
 
