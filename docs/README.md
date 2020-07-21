@@ -16,13 +16,22 @@ This app handles events sent by the app `vtex.orders-broadcast`, as you can see 
   "maxReplicas": 4,
   "workers": 1,
   "events": {
-    "omsFeed": {
+    "allStates": {
       "sender": "vtex.orders-broadcast",
       "topics": ["order-status-updated"]
+    },
+    "someStates": {
+      "sender": "vtex.orders-broadcast",
+      "topics": ["cancel", "order-created"]
     }
   }
 }
 ```
+
+You have two ways of consuming changes in status:
+
+1. Receive all events subscribing to the `order-status-updated` topic, as the `allStates` handler does
+2. Receive a selection of status changes where the `currentState` equals the `topic`, as the `someStates` handler does
 
 Normally `vtex.orders-broadcast` sends events only in `master` workspace. If you want to use it in a developer workspace, you have to do the following:
 
