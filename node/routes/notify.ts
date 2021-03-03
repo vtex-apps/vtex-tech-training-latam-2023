@@ -9,3 +9,5 @@ export async function createSendEvent(ctx: Context) {
   ctx.body = 'Event sent'
   console.log('SENT EVENT')
 }
+
+// my comment
