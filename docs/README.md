@@ -33,7 +33,7 @@ You have two ways of consuming changes in status:
 1. Receive all events subscribing to the `order-status-updated` topic, as the `allStates` handler does
 2. Receive a selection of status changes where the `currentState` equals the `topic`, as the `someStates` handler does. This option is the preferred one, when you know ahead of time, what types of events, you want to listen to.
 
-Normally `vtex.orders-broadcast` sends events only in `master` workspace. If you want to use it in a developer workspace, you have to do the following:
+Normally `vtex.orders-broadcast` sends events only in `master` workspace. If you want to use it in a developer workspace, do the following:
 
 1. Create your development workspace by running `vtex use {workspaceName}`
 2. Go to `https://{accountName}.myvtex.com/admin/apps/vtex.orders-broadcast/setup`
