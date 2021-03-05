@@ -2,7 +2,7 @@ name: 'Internal Docs Integration'
 on:
   push:
     branches:
-      - main
+      - master, main
 
 jobs:
   build:
