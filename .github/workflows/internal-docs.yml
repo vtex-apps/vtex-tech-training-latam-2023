@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: ./
+      - uses: vtex/action-internal-docs@main
         with:
           repo-token: ${{ secrets.VTEX_GITHUB_BOT_TOKEN }}
           docs-product: 'vtex-io'
