@@ -59,4 +59,4 @@ Here is an example body that you can expect to receive:
 }
 ```
 
-If you want to understand further how Feed v3 works, checkout [this documentation](https://help.vtex.com/tutorial/orders-management-feed-v3-setup--5qDml3cQypWDRTgw69s4C1).
+If you want to understand further how Feed v3 works, check out [this documentation](https://help.vtex.com/tutorial/orders-management-feed-v3-setup--5qDml3cQypWDRTgw69s4C1).
