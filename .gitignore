@@ -31,10 +31,8 @@ webpack_cache/
 # Generate directory
 render_build
 accounts
-.vscode
 lib
 entrypoints.json
 jsconfig.json
 .DS_Store
-.eslintrc
 **/yarn-error.log

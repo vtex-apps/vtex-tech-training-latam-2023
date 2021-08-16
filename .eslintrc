@@ -1,0 +1,15 @@
+{
+  "extends": "vtex",
+  "root": true,
+  "env": {
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "rules": {
+    "no-console": "warn"
+  },
+  "globals": {
+    "metrics": true
+  }
+}

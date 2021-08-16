@@ -1,10 +1,11 @@
-import {
-  Service,
+import type {
   IOClients,
   ParamsContext,
   ServiceContext,
   RecorderState,
 } from '@vtex/api'
+import { Service } from '@vtex/api'
+
 import { example } from './events/example'
 import { createSendEvent } from './routes/notify'
 import { getCacheContext, setCacheContext } from './utils/cachedContext'
@@ -23,10 +24,13 @@ declare global {
 function sendEventWithTimer() {
   setInterval(function () {
     const context = getCacheContext()
+
     if (!context) {
       console.log('no context in memory')
+
       return
     }
+
     return createSendEvent(context)
   }, 30000)
   console.log('FIRED HERE')
