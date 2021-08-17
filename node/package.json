@@ -5,11 +5,9 @@
   "devDependencies": {
     "@types/co-body": "^0.0.3",
     "@types/node": "12.x",
-    "@vtex/api": "6.35.0",
-    "eslint": "^6.3.0",
-    "eslint-config-vtex": "^11.0.0",
-    "prettier": "^1.18.2",
-    "typescript": "3.8.3"
+    "@vtex/api": "6.44.0",
+    "@vtex/tsconfig": "^0.5.6",
+    "typescript": "3.9.7"
   },
   "scripts": {
     "lint": "tsc --noEmit --pretty && eslint -c .eslintrc.json --fix './**/*.ts'"

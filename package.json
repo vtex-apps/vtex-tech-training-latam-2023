@@ -1,0 +1,34 @@
+{
+  "name": "CHANGE_ME",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "lint": "eslint --ext js,jsx,ts,tsx .",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json}\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js,tsx,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,graphql,gql}": [
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.21",
+    "@vtex/prettier-config": "^0.3.1",
+    "@vtex/danger": "^0.2.7",
+    "eslint": "^6.8.0",
+    "eslint-config-vtex": "^12.7.0",
+    "husky": "^4.2.0",
+    "lint-staged": "^10.0.2",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.6"
+  }
+}
