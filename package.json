@@ -23,6 +23,7 @@
   "devDependencies": {
     "@types/node": "^12.12.21",
     "@vtex/prettier-config": "^0.3.1",
+    "@vtex/danger": "^0.2.7",
     "eslint": "^6.8.0",
     "eslint-config-vtex": "^12.7.0",
     "husky": "^4.2.0",
