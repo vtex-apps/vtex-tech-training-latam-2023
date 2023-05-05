@@ -1,0 +1,12 @@
+{
+  "my-component-parent": {
+    "component": "MyComponent",
+    "composition": "children"
+  },
+  "component-1": {
+    "component": "Component1"
+  },
+  "component-2": {
+    "component": "Component2"
+  }
+}

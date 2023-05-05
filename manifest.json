@@ -10,10 +10,10 @@
     "docs": "0.x",
     "store": "0.x"
   },
-  "dependencies": {},
-  "registries": [
-    "smartcheckout"
-  ],
+  "dependencies": {
+    "vtex.styleguide": "9.x"
+  },
+  "registries": ["smartcheckout"],
   "policies": [],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
