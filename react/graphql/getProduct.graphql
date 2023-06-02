@@ -1,0 +1,6 @@
+query getProduct($productId: ID!) {
+  product (identifier: {field: id, value: $productId}){
+    productName
+    brand
+  }
+}
