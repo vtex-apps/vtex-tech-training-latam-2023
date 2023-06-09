@@ -1,0 +1,10 @@
+query getAccessesories ($productId: ID!) {
+    productRecommendations (
+        identifier: { field: sku, value: $productId }, type: accessories
+    ) {
+        productName
+        items {
+            itemId
+        }
+    }
+}
