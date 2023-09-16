@@ -8,7 +8,14 @@
   "events": {
     "example": {
       "sender": "vtex.events-example",
-      "keys": ["send-event"]
+      "keys": [
+        "send-event"
+      ]
+    },
+    "skuChange": {
+      "keys": [
+        "broadcaster.notification"
+      ]
     }
   },
   "routes": {

@@ -15,6 +15,13 @@
   "credentialType": "absolute",
   "policies": [
     {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/api/catalog/*"
+      }
+    },
+    {
       "name": "colossus-fire-event"
     },
     {
