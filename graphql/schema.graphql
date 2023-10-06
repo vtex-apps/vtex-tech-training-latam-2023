@@ -1,0 +1,25 @@
+type Cancion {
+  name: String
+  gender: String
+  author: String
+  album: String
+}
+
+scalar Void
+
+type Query {
+  getCanciones(
+    author: String = ""
+    page: Int = 1
+    pageSize: Int = 10
+  ): [Cancion] @cacheControl(scope: PUBLIC, maxAge: SHORT)
+}
+
+type Mutation {
+  createCancion(
+    name: String
+    gender: String
+    author: String
+    album: String
+  ): Void
+}

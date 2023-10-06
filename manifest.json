@@ -1,0 +1,59 @@
+{
+  "name": "graphql-example-2",
+  "vendor": "eobando",
+  "version": "0.0.1",
+  "title": "GraphQL Example",
+  "description": "Reference app for VTEX IO GraphQL Services",
+  "mustUpdateAt": "2022-01-04",
+  "categories": [],
+  "dependencies": {},
+  "builders": {
+    "docs": "0.x",
+    "graphql": "1.x",
+    "node": "6.x"
+  },
+  "scripts": {
+    "prereleasy": "bash lint.sh"
+  },
+  "credentialType": "absolute",
+  "policies": [
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "api.vtex.com",
+        "path": "/api/*"
+      }
+    },
+    {
+      "name": "POWER_USER_DS"
+    },
+    {
+      "name": "ADMIN_DS"
+    },
+    {
+      "name": "ADMIN_CRM"
+    },
+    {
+      "name": "POWER_USER_CRM"
+    },
+    {
+      "name": "colossus-fire-event"
+    },
+    {
+      "name": "colossus-write-logs"
+    },
+    {
+      "name": "graphql-query"
+    },
+    {
+      "name": "read-workspace-apps-assets"
+    },
+    {
+      "name": "update-app-settings"
+    },
+    {
+      "name": "install-apps"
+    }
+  ],
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}

@@ -1,0 +1,10 @@
+{
+  "extends": "@vtex/tsconfig",
+  "compilerOptions": {
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types"],
+    "module": "commonjs",
+    "noEmitOnError": true
+  },
+  "include": ["./**/*.ts", "./typings/*.d.ts"]
+}

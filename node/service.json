@@ -1,0 +1,13 @@
+{
+  "memory": 256,
+  "ttl": 10,
+  "timeout": 60,
+  "minReplicas": 2,
+  "maxReplicas": 5,
+  "events": {
+    "initializeDatabase": {
+      "sender": "apps",
+      "keys": ["linked", "setup"]
+    }
+  }
+}
