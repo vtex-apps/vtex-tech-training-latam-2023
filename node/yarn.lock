@@ -1615,10 +1615,10 @@
   resolved "https://registry.yarnpkg.com/@types/zen-observable/-/zen-observable-0.8.4.tgz#e06f78a43387899cfa60c02f166620907fc534c8"
   integrity sha512-XWquk4B9Y9bP++I9FsKBVDR+cM1duIqTksuD4l+XUDcqKdngHrtLBe6A5DQX5sdJPWDhLFM9xHZBCiWcecZ0Jg==
 
-"@vtex/api@6.45.20":
-  version "6.45.20"
-  resolved "https://registry.yarnpkg.com/@vtex/api/-/api-6.45.20.tgz#c1090249a424fd700499de3fed0d80d99ff53332"
-  integrity sha512-O7RJWWr4PfvixNpc0GgQh85iKcv9j1IKkpApwJQSW/WzxoTgSrcjYHOVUmJ1GWWBmRV/qvB2VaV6Ow1QL3UOCQ==
+"@vtex/api@6.45.22":
+  version "6.45.22"
+  resolved "https://registry.yarnpkg.com/@vtex/api/-/api-6.45.22.tgz#fa9bbfde1a4d4fbbaf6cce9f6dbc9bb9ee929ba3"
+  integrity sha512-g5cGUDhF4FADgSMpQmce/bnIZumwGlPG2cabwbQKIQ+cCFMZqOEM/n+YQb1+S8bCyHkzW3u/ZABoyCKi5/nxxg==
   dependencies:
     "@types/koa" "^2.11.0"
     "@types/koa-compose" "^3.2.3"
@@ -6101,7 +6101,7 @@ static-extend@^0.1.1:
     define-property "^0.2.5"
     object-copy "^0.1.0"
 
-stats-lite@vtex/node-stats-lite#dist:
+"stats-lite@github:vtex/node-stats-lite#dist":
   version "2.2.0"
   resolved "https://codeload.github.com/vtex/node-stats-lite/tar.gz/1b0d39cc41ef7aaecfd541191f877887a2044797"
   dependencies:
